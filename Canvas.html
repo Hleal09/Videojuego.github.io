@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" >
+<title>CANVAS</title>
+<style>
+#miCanvas
+{
+	border:dotted 2px yellow;
+	background:rgb(23, 22, 23);
+}
+</style>
+<script>
+window.onload = function()
+{
+	var canvas = document.getElementById("miCanvas");
+	if (canvas && canvas.getContext)
+	{
+		var ctx = canvas.getContext("2d");
+		if (ctx)
+		{
+			var gradiente = ctx.createLinearGradient(0,0,0,canvas.height);
+			gradiente.addColorStop(0, "black");
+			gradiente.addColorStop(0.7, "red");
+			gradiente.addColorStop(0.8, "red");
+			gradiente.addColorStop(1, "black");
+
+			ctx.fillStyle = gradiente;
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
+			var imagen = new Image();
+			function procesaImagen()
+			{
+			ctx.drawImage(imagen,10,10,200,120);
+
+				}
+				imagen.src = "imageness/16241008.jpg";
+			imagen.onload = function(e)
+			{
+			procesaImagen()
+			}
+			//Descripcion de lineas
+			ctx.lineWidth = 10;
+			ctx.strokeStyle = "White";
+			//Dibujamos esquina
+			ctx.beginPath();
+			//ctx.lineJoin = "round";
+			ctx.lineJoin = "bevel";
+			//ctx.lineJoin = "mitter";
+
+			// L
+			ctx.moveTo(110,150);
+			ctx.lineTo(110,250);
+			ctx.moveTo(109,250);
+			ctx.lineTo(145,250);
+			ctx.stroke();
+
+			// E
+			ctx.moveTo(150,150);
+			ctx.lineTo(150,250);
+			ctx.moveTo(150,150);
+			ctx.lineTo(195,150);
+			ctx.moveTo(150,200);
+			ctx.lineTo(195,200);
+			ctx.moveTo(150,250);
+			ctx.lineTo(195,250);
+			ctx.stroke();
+
+			// A
+			ctx.moveTo(275,150);
+			ctx.lineTo(250,250);
+			ctx.moveTo(275,150);
+			ctx.lineTo(300,250);
+			ctx.moveTo(285,200);
+			ctx.lineTo(265,200);
+			ctx.stroke();
+
+			// L
+			ctx.moveTo(110,150);
+			ctx.lineTo(110,250);
+			ctx.moveTo(109,250);
+			ctx.lineTo(145,250);
+			ctx.stroke();
+	}
+}else
+		{
+			alert("Error al crear tu contexto");
+		}
+}
+</script>
+</head>
+
+<body>
+<h1>Video Juegos</h1>
+<canvas id="miCanvas" width="500px" height="300px">
+Tu navegador no soporta CANVAS
+</canvas>
+<h4>
+	<a class="boton" href="WAR ZONE.html" style="color: #074b8e " target="_blank"></a>
+	 Jugar... GO
+	</h4>
+
+</body>
+
+</html>
